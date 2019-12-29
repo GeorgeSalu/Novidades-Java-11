@@ -1,7 +1,7 @@
-package br.com.alura;
+package br.com.alura.servico;
 
-import java.util.ArrayList;
-import java.util.Collections;
+import br.com.alura.modelo.Aluno;
+
 import java.util.List;
 
 /**

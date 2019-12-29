@@ -1,4 +1,4 @@
-package br.com.alura;
+package br.com.alura.modelo;
 
 /**
  * @author george on 29/12/2019
