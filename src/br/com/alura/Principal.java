@@ -48,5 +48,10 @@ public class Principal {
         aluno.ifPresentOrElse(System.out::println,
                 () -> System.out.println("Nao a aluno cadastrado"));
 
+        Optional<Aluno> alunoRecuperado = alunoServico.listarPorCpf(000L)
+                .or(() -> alunoServico.listarPorCpf(1111L))
+                .or(() -> alunoServico.listarPorCpf(89232443232L));
+
+        System.out.println("aluno recuperado = "+alunoRecuperado.get());
     }
 }
