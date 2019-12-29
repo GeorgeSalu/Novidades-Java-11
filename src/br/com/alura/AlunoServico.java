@@ -1,6 +1,7 @@
 package br.com.alura;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -13,11 +14,7 @@ public class AlunoServico {
     Aluno fernanda = new Aluno("Fernanda", 23243434233L);
 
     public List<Aluno> listar() {
-        List<Aluno> alunos = new ArrayList<>();
-
-        alunos.add(joao);
-        alunos.add(fernanda);
-
+        List<Aluno> alunos = List.of(joao, fernanda);
         return alunos;
     }
 
