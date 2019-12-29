@@ -1,8 +1,13 @@
 package br.com.alura;
 
+import br.com.alura.modelo.Curso;
+import br.com.alura.modelo.Turma;
 import br.com.alura.servico.AlunoServico;
+import br.com.alura.servico.TurmaServico;
 
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -14,6 +19,7 @@ public class Principal {
     public static void main(String[] args) {
 
         AlunoServico alunoServico = new AlunoServico();
+        TurmaServico turmaServico = new TurmaServico();
 
         List<String> alunos = alunoServico.listar().stream()
                     .flatMap(a -> Stream.ofNullable(a.getNome()))
@@ -21,5 +27,11 @@ public class Principal {
                     .collect(Collectors.toList());
 
         System.out.println(alunos);
+
+        Map<Curso, List<Turma>> turmasPorCurso = turmaServico.listar().stream()
+                .filter(a -> LocalDate.of(2019,06,10).equals(a.getInicio()))
+                .collect(Collectors.groupingBy(Turma::getCurso));
+
+        System.out.println("Relacao de turmas por curso "+turmasPorCurso);
     }
 }
