@@ -3,6 +3,7 @@ package br.com.alura.servico;
 import br.com.alura.modelo.Aluno;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author george on 29/12/2019
@@ -17,6 +18,13 @@ public class AlunoServico {
     public List<Aluno> listar() {
         List<Aluno> alunos = List.of(joao, fernanda, aluno);
         return alunos;
+    }
+
+    public Optional<Aluno> listarPorCpf(Long cpf) {
+        Optional<Aluno> aluno = listar().stream()
+                .filter(a -> a.getCpf().equals(cpf))
+                .findAny();
+        return aluno;
     }
 
 }

@@ -1,5 +1,6 @@
 package br.com.alura;
 
+import br.com.alura.modelo.Aluno;
 import br.com.alura.modelo.Curso;
 import br.com.alura.modelo.Turma;
 import br.com.alura.servico.AlunoServico;
@@ -8,6 +9,7 @@ import br.com.alura.servico.TurmaServico;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -40,5 +42,14 @@ public class Principal {
                         Collectors.filtering(a -> a.getInicio().equals(LocalDate.of(2019,01,04)), Collectors.toList())));
 
         System.out.println(turmasPorCursoData);
+
+        //Optional
+        Optional<Aluno> aluno = alunoServico.listarPorCpf(89232443232L);
+        if(aluno.isPresent()) {
+            System.out.println(aluno.get());
+        } else {
+            System.out.println("nao a aluno cadastrado");
+        }
+
     }
 }
