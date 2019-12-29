@@ -23,7 +23,7 @@ public class Principal {
         AlunoServico alunoServico = new AlunoServico();
         TurmaServico turmaServico = new TurmaServico();
 
-        List<String> alunos = alunoServico.listar().stream()
+        var alunos = alunoServico.listar().stream()
                     .flatMap(a -> Stream.ofNullable(a.getNome()))
                     .map(s -> s.toUpperCase())
                     .collect(Collectors.toList());
