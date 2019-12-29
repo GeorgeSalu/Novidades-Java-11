@@ -44,12 +44,9 @@ public class Principal {
         System.out.println(turmasPorCursoData);
 
         //Optional
-        Optional<Aluno> aluno = alunoServico.listarPorCpf(89232443232L);
-        if(aluno.isPresent()) {
-            System.out.println(aluno.get());
-        } else {
-            System.out.println("nao a aluno cadastrado");
-        }
+        Optional<Aluno> aluno = alunoServico.listarPorCpf(892324432L);
+        aluno.ifPresentOrElse(System.out::println,
+                () -> System.out.println("Nao a aluno cadastrado"));
 
     }
 }
