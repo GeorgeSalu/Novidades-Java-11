@@ -33,5 +33,12 @@ public class Principal {
                 .collect(Collectors.groupingBy(Turma::getCurso));
 
         System.out.println("Relacao de turmas por curso "+turmasPorCurso);
+
+
+        Map<Curso, List<Turma>> turmasPorCursoData = turmaServico.listar().stream()
+                .collect(Collectors.groupingBy(Turma::getCurso,
+                        Collectors.filtering(a -> a.getInicio().equals(LocalDate.of(2019,01,04)), Collectors.toList())));
+
+        System.out.println(turmasPorCursoData);
     }
 }
