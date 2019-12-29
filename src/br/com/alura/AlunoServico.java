@@ -12,9 +12,10 @@ public class AlunoServico {
 
     Aluno joao = new Aluno("Joao", 89232443232L);
     Aluno fernanda = new Aluno("Fernanda", 23243434233L);
+    Aluno aluno = new Aluno(null, 232434354L);
 
     public List<Aluno> listar() {
-        List<Aluno> alunos = List.of(joao, fernanda);
+        List<Aluno> alunos = List.of(joao, fernanda, aluno);
         return alunos;
     }
 

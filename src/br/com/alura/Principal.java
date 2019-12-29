@@ -14,7 +14,7 @@ public class Principal {
         AlunoServico alunoServico = new AlunoServico();
 
         List<String> alunos = alunoServico.listar().stream()
-                    .flatMap(a -> Stream.of(a.getNome()))
+                    .flatMap(a -> Stream.ofNullable(a.getNome()))
                     .map(s -> s.toUpperCase())
                     .collect(Collectors.toList());
 
