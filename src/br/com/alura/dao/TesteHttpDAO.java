@@ -29,9 +29,9 @@ public class TesteHttpDAO {
     }
 
     public void testaConexaoHttp2() throws IOException, InterruptedException, URISyntaxException {
-        URI uri = new URI("https://www.google.com.br");
+        URI uri = new URI("https://www.google.com/");
 
-        HttpClient client = HttpClient.newHttpClient();
+        HttpClient client = HttpClient.newBuilder().followRedirects(HttpClient.Redirect.ALWAYS).build();
 
         HttpRequest req = HttpRequest.newBuilder(uri).GET().build();
 
