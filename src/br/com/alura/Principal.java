@@ -1,11 +1,13 @@
 package br.com.alura;
 
+import br.com.alura.dao.TesteHttpDAO;
 import br.com.alura.modelo.Aluno;
 import br.com.alura.modelo.Curso;
 import br.com.alura.modelo.Turma;
 import br.com.alura.servico.AlunoServico;
 import br.com.alura.servico.TurmaServico;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -18,10 +20,11 @@ import java.util.stream.Stream;
  * @project Novidades-Java-11
  */
 public class Principal {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         AlunoServico alunoServico = new AlunoServico();
         TurmaServico turmaServico = new TurmaServico();
+        TesteHttpDAO dao = new TesteHttpDAO();
 
         var alunos = alunoServico.listar().stream()
                     .flatMap(a -> Stream.ofNullable(a.getNome()))
@@ -53,5 +56,8 @@ public class Principal {
                 .or(() -> alunoServico.listarPorCpf(89232443232L));
 
         System.out.println("aluno recuperado = "+alunoRecuperado.get());
+
+        //http
+        dao.testaConexaoHttp();
     }
 }
