@@ -8,6 +8,7 @@ import br.com.alura.servico.AlunoServico;
 import br.com.alura.servico.TurmaServico;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ import java.util.stream.Stream;
  * @project Novidades-Java-11
  */
 public class Principal {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
 
         AlunoServico alunoServico = new AlunoServico();
         TurmaServico turmaServico = new TurmaServico();
@@ -59,5 +60,6 @@ public class Principal {
 
         //http
         dao.testaConexaoHttp();
+        dao.testaConexaoHttp2();
     }
 }
